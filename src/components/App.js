@@ -11,6 +11,11 @@ function App() {
   useEffect(() => {
     fetch(API)
       .then(r => r.json())
+      .then(sushis =>
+        sushis.map(sushi => {
+          return { ...sushi, eaten: false };
+        })
+      )
       .then(setMenu);
   }, []);
 
