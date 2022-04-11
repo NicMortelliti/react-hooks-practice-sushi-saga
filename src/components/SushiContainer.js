@@ -2,7 +2,7 @@ import React from "react";
 import MoreButton from "./MoreButton";
 import Sushi from "./Sushi";
 
-function SushiContainer({ menu, handleEat }) {
+function SushiContainer({ menu, handleEat, handleMore }) {
   return (
     <div className="belt">
       {menu.slice(0, 4).map(menuItem => {
@@ -10,7 +10,7 @@ function SushiContainer({ menu, handleEat }) {
           <Sushi key={menuItem.id} item={menuItem} handleEat={handleEat} />
         );
       })}
-      <MoreButton />
+      <MoreButton onMoreClick={handleMore} />
     </div>
   );
 }

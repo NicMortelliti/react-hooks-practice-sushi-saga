@@ -34,9 +34,21 @@ function App() {
     }
   }
 
+  function handleMore() {
+    console.log("App - handleMore - wip");
+    // const newMenu = menu.map(menuItem => {
+    //   return menuItem.eaten === false ? menuItem : null;
+    // });
+    // setMenu(newMenu);
+  }
+
   return (
     <div className="app">
-      <SushiContainer menu={menu} handleEat={handleEat} />
+      <SushiContainer
+        menu={menu}
+        handleEat={handleEat}
+        handleMore={handleMore}
+      />
       <Table money={money} />
     </div>
   );
