@@ -20,7 +20,18 @@ function App() {
   }, []);
 
   function handleEat(id) {
-    console.log(id);
+    const updatedMenu = menu.map(menuItem => {
+      if (menuItem.id === id) {
+        const updatedMenuItem = {
+          ...menuItem,
+          eaten: true,
+        };
+
+        return updatedMenuItem;
+      }
+      return menuItem;
+    });
+    setMenu(updatedMenu);
   }
 
   return (
