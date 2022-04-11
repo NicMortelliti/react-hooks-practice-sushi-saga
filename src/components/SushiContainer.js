@@ -2,11 +2,13 @@ import React from "react";
 import MoreButton from "./MoreButton";
 import Sushi from "./Sushi";
 
-function SushiContainer({ menu }) {
+function SushiContainer({ menu, handleEat }) {
   return (
     <div className="belt">
       {menu.map(menuItem => {
-        return <Sushi item={menuItem} />;
+        return (
+          <Sushi key={menuItem.id} item={menuItem} handleEat={handleEat} />
+        );
       })}
       <MoreButton />
     </div>

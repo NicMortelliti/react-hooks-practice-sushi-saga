@@ -13,9 +13,13 @@ function App() {
       .then(menuData => setMenu(menuData));
   }, []);
 
+  function handleEat(id) {
+    console.log(id);
+  }
+
   return (
     <div className="app">
-      <SushiContainer menu={menu} />
+      <SushiContainer menu={menu} handleEat={handleEat} />
       <Table />
     </div>
   );
