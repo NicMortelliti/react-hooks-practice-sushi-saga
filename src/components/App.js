@@ -7,6 +7,7 @@ const API = "http://localhost:3001/sushis";
 function App() {
   const [menu, setMenu] = useState([]);
 
+  // Populate menu from server
   useEffect(() => {
     fetch(API)
       .then(r => r.json())
