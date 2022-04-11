@@ -10,7 +10,7 @@ function App() {
   useEffect(() => {
     fetch(API)
       .then(r => r.json())
-      .then(menuData => setMenu(menuData));
+      .then(setMenu);
   }, []);
 
   function handleEat(id) {
