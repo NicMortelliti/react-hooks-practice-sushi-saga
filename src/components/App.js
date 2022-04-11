@@ -21,19 +21,25 @@ function App() {
   }, []);
 
   // Set clicked sushi to eaten = true
-  function handleEat(id) {
-    const updatedMenu = menu.map(menuItem => {
-      if (menuItem.id === id) {
-        const updatedMenuItem = {
-          ...menuItem,
-          eaten: true,
-        };
+  // and subtract cost from money (wallet)
+  function handleEat(id, price) {
+    if (money >= price) {
+      const updatedMenu = menu.map(menuItem => {
+        if (menuItem.id === id) {
+          const updatedMenuItem = {
+            ...menuItem,
+            eaten: true,
+          };
 
-        return updatedMenuItem;
-      }
-      return menuItem;
-    });
-    setMenu(updatedMenu);
+          return updatedMenuItem;
+        }
+        return menuItem;
+      });
+      setMenu(updatedMenu);
+
+      const moneyUpdated = money - price;
+      setMoney(moneyUpdated);
+    }
   }
 
   return (
