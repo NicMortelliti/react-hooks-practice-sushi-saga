@@ -22,8 +22,8 @@ function App() {
 
   // Set clicked sushi to eaten = true
   // and subtract cost from money (wallet)
-  function handleEat(id, price) {
-    if (money >= price) {
+  function handleEat(id, price, eaten) {
+    if (money >= price && !eaten) {
       setMoney(currentMoney => currentMoney - price);
 
       // Set clicked sushi 'eaten' to true
