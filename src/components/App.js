@@ -19,6 +19,7 @@ function App() {
       .then(setMenu);
   }, []);
 
+  // Set clicked sushi to eaten = true
   function handleEat(id) {
     const updatedMenu = menu.map(menuItem => {
       if (menuItem.id === id) {
