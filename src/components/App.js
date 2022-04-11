@@ -6,6 +6,7 @@ const API = "http://localhost:3001/sushis";
 
 function App() {
   const [menu, setMenu] = useState([]);
+  const [money, setMoney] = useState(100);
 
   // Populate menu from server
   useEffect(() => {
@@ -38,7 +39,7 @@ function App() {
   return (
     <div className="app">
       <SushiContainer menu={menu} handleEat={handleEat} />
-      <Table />
+      <Table money={money} />
     </div>
   );
 }
