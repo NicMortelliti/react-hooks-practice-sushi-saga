@@ -24,21 +24,13 @@ function App() {
   // and subtract cost from money (wallet)
   function handleEat(id, price) {
     if (money >= price) {
-      const updatedMenu = menu.map(menuItem => {
-        if (menuItem.id === id) {
-          const updatedMenuItem = {
-            ...menuItem,
-            eaten: true,
-          };
+      setMoney(currentMoney => currentMoney - price);
 
-          return updatedMenuItem;
-        }
-        return menuItem;
+      // Set clicked sushi 'eaten' to true
+      const updatedMenu = menu.map(menuItem => {
+        return menuItem.id === id ? { ...menuItem, eaten: true } : menuItem;
       });
       setMenu(updatedMenu);
-
-      const moneyUpdated = money - price;
-      setMoney(moneyUpdated);
     }
   }
 
