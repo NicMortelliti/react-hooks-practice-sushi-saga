@@ -34,13 +34,15 @@ function App() {
     }
   }
 
-  function handleMore() {
-    console.log("App - handleMore - wip");
-    // const newMenu = menu.map(menuItem => {
-    //   return menuItem.eaten === false ? menuItem : null;
-    // });
-    // setMenu(newMenu);
-  }
+  // More button click moves visible 4 menuItems to
+  // back of menu and triggers a rerender.
+  const handleMore = () => {
+    const rearrangeMenu = [...menu.slice(4), ...menu.slice(0, 4)];
+    setMenu(rearrangeMenu);
+  };
+
+  // Stack those empty plates!
+  const eatenSushi = menu.filter(menuItem => menuItem.eaten);
 
   return (
     <div className="app">
@@ -49,7 +51,7 @@ function App() {
         handleEat={handleEat}
         handleMore={handleMore}
       />
-      <Table money={money} />
+      <Table money={money} plates={eatenSushi} />
     </div>
   );
 }
